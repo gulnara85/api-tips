@@ -1,25 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from 'react'
 
 function App() {
+
+  const [advice, setAdvice] = useState ('');
+  const [hidden, setHidden] = useState(true);
+
+  useEffect (() => {getAdvice()}, [] )
+
+  const getAdvice = async () => {
+    const response = await fetch (`http://www.boredapi.com/api/activity/ `);
+    const data = await response.json ();
+    console.log (data.activity);
+    setAdvice (data.activity)
+  }
+
+  const showAdvice =() => {
+    setHidden (s => !s)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='mainContainer'>
+
+      <div className='container'>
+        <h1> Bored? </h1>
+      </div>
+
+      <div className='container'>
+      <button onClick={()=> {getAdvice(); showAdvice()} }>  View Tip</button>
+      </div>
+
+    <div className='container'>
+      {!hidden? <h2> '' {advice} '' </h2> : null }
     </div>
-  );
+
+  </div>
+  )
 }
 
 export default App;

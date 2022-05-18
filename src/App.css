@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+body {
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/02/06/25/angel-1790711__340.png');
+  background-repeat: no-repeat;
+  background-position:top;
+  background-color: #FFFDF9;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.mainContainer {
+  margin-top: 300px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-size: 50px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #555555;
+  
+}
+button {
+padding: 10px;
+border-radius: 15px;
+border: none;
+background-color: #D9E4DD;
+font-family: 'Josefin Sans', sans-serif;
+font-size: 20px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:hover {
+  background-color: #C9D99E;
+  font-size: 25px;
+}
+
+h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #709078;
+  font-size: 25px;
+  text-align: center;
+  text-shadow: 1px 1px black;
+  margin-top: 50px;
+}
+
+@media all and (max-width:500px) {
+  body {
+    height: 100vh;
+    width: 100vw;
   }
-  to {
-    transform: rotate(360deg);
+  
+  h1{
+    font-size: 40px;
   }
 }
