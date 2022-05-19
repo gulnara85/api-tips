@@ -4,9 +4,6 @@ import {useEffect, useState} from 'react'
 function App() {
 
   const [advice, setAdvice] = useState ('');
-  const [hidden, setHidden] = useState(true);
-
-  useEffect (() => {getAdvice()}, [] )
 
   const getAdvice = async () => {
     const response = await fetch (`https://www.boredapi.com/api/activity/ `);
@@ -15,9 +12,6 @@ function App() {
     setAdvice (data.activity)
   }
 
-  const showAdvice =() => {
-    setHidden (s => !s)
-  }
   return (
     <div className='mainContainer'>
 
@@ -26,11 +20,11 @@ function App() {
       </div>
 
       <div className='container'>
-      <button onClick={()=> {getAdvice(); showAdvice()} }>  View Tip</button>
+      <button onClick={()=> {getAdvice()} }>View Tip</button>
       </div>
 
     <div className='container'>
-      {!hidden? <h2> '' {advice} '' </h2> : null }
+      {advice}
     </div>
 
   </div>
