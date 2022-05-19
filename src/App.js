@@ -24,7 +24,7 @@ function App() {
       </div>
 
     <div className='container'>
-      {advice}
+     <h2> {advice} </h2>
     </div>
 
   </div>
